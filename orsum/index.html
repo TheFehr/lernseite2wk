@@ -1,19 +1,72 @@
 <!DOCTYPE html>
-<html manifest="manifest.manifest">
+<html>
     <head>
         <title>Orsum Ichnographiae</title>
         <link rel="stylesheet" href="style.css" />
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAQkCdRP_9EjvfE2n7e_FcHRa5aDcB6s94"></script>
         <script type="text/javascript" src="js/ajax.js"></script>
         <script type="text/javascript" src="js/Movement.js"></script>
+        <script type="text/javascript" src="js/Occurrence.js"></script>
+        <script type="text/javascript" src="js/Place.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <meta charset="utf-8" />
     </head>
     <body>
-        <div id="header">
-            <h3>Orsum Ichnographiae</h3>
+	    <div id="wrapper">
+		    <div id="infoWindow">
+				<h1>Orsum Ichnographiae</h1>
+				<h2>Informationen / Impressum</h2>
+				<p>Entwickelt von Philipp Fehr und Lukas Bischof im Rahmen eines Schulprojektes.</p>
+				<p>
+					Es dient nicht dem Bildungszweck, da einige Informationen u.U. noch falsch sein könnten.
+					Zudem werden auch noch nicht alle wichtigen Ereignisse dargestellt.
+				</p>
+				<div>
+					<h3>Quellenverzeichnis</h3>
+					<ul>
+						<li>
+							Wikipedia:
+							<ul>
+								<li><a href="https://de.wikipedia.org/wiki/Deutsch-Sowjetischer_Krieg#Schlacht_von_Stalingrad_.28August_1942_bis_M.C3.A4rz_1943.29">Deutsch-Sowjetischer Krieg</a></li>
+							</ul>
+						</li>
+						<li>Welt, „Fall Barbarossa“ begann wie ein Sandkastenspiel, von Sven Felix Kellerhoff, 17.12.2015 <a href="https://www.welt.de/geschichte/zweiter-weltkrieg/article150055088/Fall-Barbarossa-begann-wie-ein-Sandkastenspiel.html">welt.de</a></li>
+						<li>Zeittafel Deutschland 1933 bis 1945, <a href="http://www.infoseiten.slpb.de/geschichte/deutschland/1933-1945/zeittafel/">infoseiten.slbp.de</a></li>
+						<li>Lebendiges Museum Online, "Die deutsche Westoffensive 1940" von Arnulf Scriba, 19. Mai 2015 <a href="https://www.dhm.de/lemo/kapitel/der-zweite-weltkrieg/kriegsverlauf/westoffensive-1940.html">dhm.de</a></li>
+						<li>Geschichtsdossier "Der zweite Weltkrieg", Andrea Weidmann-Dobbs, KBW</li>
+					</ul>
+				</div>
+				<footer>
+					Copyright &copy; 2016 by Philipp Fehr und Lukas Bischof. All rights reserved.
+				</footer>
+	    	</div>
+	    </div>
+	    
+	    <div id="map">
         </div>
-        <div id="map">
-            <img style="-webkit-user-select: none; display: block; margin: auto" src="map.png" />
+        <div id="header" class="dark">
+            <h3>Orsum Ichnographiae – Die interaktive Weltkarte des 2. Weltkrieges</h3>
+            <span id="about">Info</span>
+            <div id="controls">
+	            <div class="controlElement" id="minifyMap">
+		            -
+	            </div>
+	            <div class="controlElement" id="magnifyMap">
+		            +
+	            </div>
+            </div>
+            <span id="coords">0°N | 0°W</span>
+            <div id="mapControls">
+                <img src="icons/roadmap.png" alt="switch to roadmap" width="30" height="30" class="active" id="switchRoadmap" />
+                <img src="icons/hybrid.png" alt="switch to hybrid" width="30" height="30" class="inactive" id="switchHybrid" />
+            </div>
+        </div>
+        <div id="eventsList">
+	        <h3>Noch kein Jahr ausgewählt</h3>
+	        <ul></ul>
+	        <div id="label">
+		        Ereignisse
+	        </div>
         </div>
         <div id="timeline">
             <canvas id="timeRender"></canvas>
