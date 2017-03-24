@@ -11,7 +11,7 @@ use Data::Dumper;
 print "Content-Type: application/json; charset=utf-8\n\n";
 
 sub selectEvent {
-	my $param = 0;#(CGI->new())->param('id');
+	my $param = (CGI->new())->param('id');
 	my $db = shift;
 	my $stmt = $db->prepare("SELECT event.id, event.titel, event.anfang, event.ende, event.text, medien.link, medien.kurzbeschreibung, medien.thumbnailLink FROM event LEFT JOIN medien ON medien.eventIDFS=event.id WHERE event.id=$param");
 	$stmt->execute() or die $stmt->err_str;
