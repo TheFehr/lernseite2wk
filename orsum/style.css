@@ -7,29 +7,209 @@ html, body {
     padding: 0;
 }
 
+#wrapper, #details .wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1001;
+	overflow: hidden;
+	display: none;
+	-webkit-backdrop-filter: grayscale(0.8);
+}
+
+#infoWindow, #details .wrapper #detailsWindow {
+	position: absolute;
+	width: 520px;
+	height: 293px;
+	top: 50%;
+	left: 50%;
+	margin-left: -260px;
+	margin-top: -147px;
+	background: white;
+	border-radius: 5px;
+	z-index: 1002;
+	padding: 20px;
+	overflow-y: scroll;
+	color: black;
+}
+
+#details .wrapper {
+	opacity: 0;
+	-webkit-transition: 0.25s opacity;
+}
+
+#details .wrapper #detailsWindow {
+	width: 870px;
+	height: 593px;
+	margin-left: -435px;
+	margin-top: -297px;
+	overflow: hidden;
+	padding: 0;
+}
+
+#details .wrapper #detailsWindow iframe {
+	position: absolute;
+	top: 40px;
+	left: 0;
+	width: 100%;
+	height: calc(100% - 40px);
+	border: none;
+}
+
+#details .wrapper #detailsWindow .header {
+	width: 100%;
+	height: 39.5px;
+	border-bottom: 1px solid lightgray;
+}
+
+#details .wrapper #detailsWindow .header img {
+	margin-top: 10px;
+	margin-left: 10px;
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+#details .wrapper #detailsWindow .header img:hover {
+	opacity: 1.0
+}
+
+#details .wrapper #detailsWindow #close {
+	width: 30px;
+	height: 100%;
+	float: left;
+}
+
+#details .wrapper #detailsWindow #title {
+	width: calc(100% - 30px);
+	height: 100%;
+	float: left;
+	text-align: center;
+	line-height: 40px;
+	font-weight: bold;
+	font-size: 14pt
+}
+
+#infoWindow h2, #infoWindow h3, #infoWindow h4,
+#detailsWindow h2, #detailsWindow h3, #detailsWindow h4 {
+	padding-left: 0;
+	margin-left: 0 !important;
+}
+
+#details .wrapper {
+	display: none;
+}
+
 #header {
-    background-color: lightgray;
+	position: absolute;
     top: 0;
     left: 0;
     margin: 0;
     width: 100%;
     height: 50px;
+    background: rgba(191, 191, 191, 0.9);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    overflow: hidden;
+    -webkit-user-select: none;
 }
 
 #header > h1, h2, h3, h4, h5, h6 {
     margin: 0 20px;
     line-height: 50px;
     font-weight: normal;
+    display: inline-block;
+}
+
+#header #about {
+	color: rgb(82, 82, 82);
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#header #controls {
+	width: 100px;
+	height: 30px;
+	margin-right: 20px;
+	display: inline-block;
+	float: right;
+	border: 1px solid gray;
+	margin-top: 8px;
+	border-radius: 10px;
+	overflow: hidden;
+	cursor: pointer;
+	-webkit-user-select: none;
+	color: rgb(82, 82, 82);
+	font-size: 20px
+}
+
+#header #controls .controlElement {
+	display: inline-block;
+	width: 49px;
+	text-align: center;
+	line-height: 30px;
+	float: left;
+}
+
+#header #controls .controlElement:hover {
+	background-color: rgb(186, 186, 186);;
+}
+
+.controlElement:first-child {
+	width: 50px !important;
+}
+
+.controlElement:last-child {
+	border-left: 1px solid gray;
+}
+
+#header #coords {
+	float: right;
+	line-height: 50px;
+	margin-right: 20px;
+	color: rgb(82, 82, 82);
+	-webkit-user-select: text;
+}
+
+#header #mapControls {
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+#header #mapControls img {
+    -webkit-transition: 0.1s all;
+}
+
+#header #mapControls img.active {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+#header #mapControls img.inactive {
+    opacity: 0.45;
+}
+
+#header #mapControls img:hover {
+    opacity: 1;
 }
 
 #map {
     background: white;
     width: 100%;
-    height: calc(100% - 200px);
-    top: 50px;
+    height: 100%;
+    top: 0px;
     position: absolute;
     overflow: auto;
     cursor: zoom-in;
+}
+
+#map::-webkit-scrollbars {
+	display: none;
 }
 
 #map img {
@@ -41,10 +221,155 @@ html, body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 150px;
-    background: gray;
+    height: 100px;
+    background: rgba(191, 191, 191, 0.9);
+    border-top: 1px solid rgba(128, 128, 128, 0.5);
 }
 
 #timeline canvas {
 	display: block;
-} 
+}
+
+#eventsList {
+	position: absolute;
+	top: 51px;
+	width: 300px;
+	left: -254px;
+	height: calc(100% - 152px);
+	overflow-y: scroll;
+	background: rgba(191, 191, 191, 0.9);
+	z-index: 100;
+	-webkit-transition: 0.4s all;
+	transition: 0.4s all;
+}
+
+#eventsList:hover {
+	left: 0px;
+}
+
+#eventsList ul {
+	list-style: none;
+	padding-right: 46px;
+	text-shadow: 0px 0px 5px white;
+}
+
+#eventsList ul li {
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+
+#eventsList #label {
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	transform: rotate(90deg);
+	position: absolute;
+	right: -16px;
+	top: 50%;
+	color: rgb(82, 82, 82);
+}
+
+#eventsList h3 {
+	color: rgba(72, 72, 72, 0.8);
+	margin-top: 20px;
+	text-shadow: none;
+}
+
+#eventsList::-webkit-scrollbar-track, #infoWindow::-webkit-scrollbar-track {
+	background-color: rgba(97, 97, 97, 0.2);
+}
+
+#eventsList::-webkit-scrollbar, #infoWindow::-webkit-scrollbar {
+	width: 6px;
+	background-color: rgba(0,0,0,0);
+}
+
+#eventsList::-webkit-scrollbar-thumb {
+	background-color: rgba(98, 98, 98, 0.0);
+}
+
+#eventsList:hover::-webkit-scrollbar-thumb {
+	background-color: rgba(98, 98, 98, 0.47);
+}
+
+#infoWindow::-webkit-scrollbar, 
+#infoWindow::-webkit-scrollbar-track, 
+#details .wrapper #detailsWindow::-webkit-scrollbar,
+#details .wrapper #detailsWindow::-webkit-scrollbar-track {
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	overflow: hidden;
+}
+
+#infoWindow::-webkit-scrollbar-thumb,
+#details .wrapper #detailsWindow::-webkit-scrollbar-thumb {
+	background-color: rgba(98, 98, 98, 0.4);
+	border-radius: 5px;
+}
+
+@supports (-webkit-backdrop-filter: blur(1px)) {
+	#timeline, #eventsList, #header {
+		-webkit-backdrop-filter: blur(7px);
+		background: rgba(191, 191, 191, 0.68);
+	}
+}
+
+body.dark {
+	color: white;
+}
+
+body.dark #eventsList ul {
+	text-shadow: 0px 0px 5px rgb(32, 32, 32);
+	color: white;
+}
+
+body.dark #eventsList #label, body.dark #header #coords, body.dark #header #controls div, body.dark #header #about, body.dark #eventsList h3 {
+	color: rgb(205, 205, 205);
+}
+
+body.dark #header #controls, body.dark #header #controls .controlElement:last-child {
+	border-color: rgba(225, 225, 225, 1);
+}
+
+body.dark #header #controls .controlElement:hover {
+	background-color: rgba(255, 255, 255, 0.19);
+	color: rgba(220, 220, 220, 1);
+}
+
+body.dark #timeline, body.dark #eventsList, body.dark #header {
+	background: rgba(132, 132, 132, 0.9);
+}
+
+@supports (-webkit-backdrop-filter: blur(1px)) {
+	body.dark #timeline, body.dark #eventsList, body.dark #header {
+		-webkit-backdrop-filter: blur(7px);
+		background: rgba(132, 132, 132, 0.68);
+	}
+}
+
+#anleitung {
+	display: none;
+}
+
+#anleitung.display {
+	display: block;
+}
+
+#anleitung img {
+	z-index: 10000;
+	position: absolute;
+}
+
+#anleitung #first {
+	bottom: 100px;
+	left: 50px;
+}
+
+#instructionsButton {
+	display: inline-block;
+	height: 35px;
+	font-size: 14pt;
+	line-height: 35px;
+	margin-bottom: 30px;
+}
