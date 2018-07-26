@@ -20,7 +20,9 @@ sub selectEvent {
 	return $stmt;
 }
 
-my ($db_user, $db_name, $db_pass) = # ('INSERT USER NAME', 'INSERT DB NAME', 'INSERT DB PASSWORD');
+# my ($db_user, $db_name, $db_pass) = ('INSERT USER NAME', 'INSERT DB NAME', 'INSERT DB PASSWORD');
+# When using Docker image:
+my ($db_user, $db_name, $db_pass) = ('docker', 'media', 'my-secure-password');
 my $db = DBI->connect("DBI:mysql:database=$db_name", $db_user, $db_pass, {RaiseError => 0, PrintError => 1, mysql_enable_utf8 => 1});
 
 $statement = selectEvent($db);

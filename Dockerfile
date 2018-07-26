@@ -1,13 +1,15 @@
 FROM linuxconfig/lemp
 EXPOSE 80
+LABEL maintainer="Lukas Bischof"
+LABEL version="1.0"
+LABEL description="Orsum Ichnographiae Docker Image"
 
 ENV MYSQL_ROOT_PASSWORD=admin
-ENV MYSQL_ALLOW_EMPTY_PASSWORD=true
-ENV MYSQL_RANDOM_ROOT_PASSWORD=random
+ENV MYSQL_ALLOW_EMPTY_PASSWORD=false
 ENV FCGI_USER=root
 ENV FCGI_GROUP=root
 
-COPY ./ /var/www
+COPY --chown=root:www-data ./ /var/www
 COPY ./docker/nginx.conf /etc/nginx/sites-enabled/default
 COPY ./docker/entrypoint.sh /docker-entrypoint.sh
 
