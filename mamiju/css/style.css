@@ -2,6 +2,7 @@
 
 body {
 	min-width: 800px;
+	background: gray;
 }
 
 #container {
@@ -86,7 +87,7 @@ nav ul {
 }
 
 nav ul {
-	color: darkgreen;
+	color: gray;
 	text-decoration: none;
 }
 
@@ -94,15 +95,16 @@ nav ul {
 	width:100%;
 	font-size: large;
 	padding: 0.3em;
-	background: #BCCE98;
+	background: gray;
 }
 
 #left {
-	background: #DAE9BC;
+	background: gray;
 }
 
 #right {
-	background: #DAE9BC;
+	background: gray;
+	position: relative;
 	/*background: #F7FDEB;*/
 }
 
@@ -140,8 +142,8 @@ p {
 }
 
 .timebutton {
-    background-color: white; 
-    color: black; 
+    background-color: white;
+    color: black;
     border: 2px solid #51e2ad;
 }
 
