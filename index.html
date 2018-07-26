@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>2WK - 3I 2017</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="buttons.min.css" />
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAQkCdRP_9EjvfE2n7e_FcHRa5aDcB6s94" async></script>
+        <script type="text/javascript" src="js/ajax.js"></script>
+        <script type="text/javascript" src="js/Event.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </head>
+    <body>
+	    <div id="anleitung">
+	    	<img src="icons/Anleitung_1.png" id="first" />
+	    </div>
+	    <div id="details">
+		    <div class="wrapper" onclick="window.event.target.className == 'wrapper' ? closeInfo() : void(0)">
+			    <div id="detailsWindow">
+				    <div class="header">
+					    <div id="close">
+						    <img src="icons/close.svg" width="20" height="20" onclick="closeInfo()" />
+					    </div>
+					    <div id="title">
+						    #Title#
+					    </div>
+				    </div>
+				    <iframe id="infoFrame"></iframe>
+			    </div>
+		    </div>
+	    </div>
+	    
+	    <div id="wrapper">
+		    <div id="infoWindow">
+				<h1>Orsum Ichnographiae v2.0</h1>
+				<h2>Informationen / Impressum</h2>
+				<p>Entwickelt von der Klasse 3I 2017 im Rahmen eines Schulprojektes. Basierend auf dem Projekt <a href="http://3i.glowli.ch/sites/orsum_Ichnographiae_-_Bischof_Fehr/" target="_blank">Orsum Ichnographiae</a> und <a href="http://3i.glowli.ch/sites/Projekt:Mamiju/" target="_blank">Mamiju</a></p>
+				<p>
+					Orsum Ichnographiae ist zudem als OpenSource Projekt auf <a href="https://github.com/TheFehr/orsumIchnographiae" target="_blank">GitHub</a> verfügbar.
+				</p>
+				<br />
+				<div class="button light" id="instructionsButton" size="auto">Anleitung nochmals anzeigen</div>
+				<br />
+				<div class="quellen">
+					<h3>Quellenverzeichnis</h3>
+					<details>
+						<summary>Quellen anzeigen</summary>
+						<ul>
+							<li>Nichtangriffspakt.jpg: <a href="https://www.dhm.de/fileadmin/medien/lemo/Titelbilder/ba108630_1.jpg">https://www.dhm.de/fileadmin/medien/lemo/Titelbilder/ba108630_1.jpg</a></li>
+							<li>geheimes zusatzprotokoll.png: <a href="http://www.wikiwand.com/de/Deutsch-sowjetischer_Nichtangriffspakt">http://www.wikiwand.com/de/Deutsch-sowjetischer_Nichtangriffspakt</a></li>
+							<li>
+								Machtergreifung
+								<ul>
+									<li><a href="http://www.planet-wissen.de/geschichte/diktatoren/adolf_hitlers_lebensweg/pwiediebasisfuerhitlerswegzurmacht100.html">www.planet-wissen.de</a></li>
+								</ul>
+							</li>
+							<li>
+								Polenfeldzug
+								<ul>
+									<li><a href="https://www.welt.de/img/geschichte/zweiter-weltkrieg/mobile131787474/7791624327-ci23x11-w1280/DWO-KU-Angriff-auf-Polen-1939-db-Aufm-jpg.jpg">www.welt.de</a></li>
+								</ul>
+							</li>
+							<li>
+								Schlacht über Deutschland
+								<ul>
+									<li><a href="http://www.sueddeutsche.de/politik/luftschlacht-um-england-wie-hitler-den-blitz-verlor-1.2642789-11">www.sueddeutsche.de</a></li>
+									<li><a href="https://de.wikipedia.org/wiki/Luftschlacht_um_England">https://de.wikipedia.org/wiki/Luftschlacht_um_England</a></li>
+									<li><a href="https://www.welt.de/kultur/article8633764/Warum-Hitler-die-Luftschlacht-um-England-verlor.html">www.welt.de</a></li>
+									<li><a href="https://pxhst.co/avaxhome/37/e2/001ae237.png">https://pxhst.co/avaxhome/37/e2/001ae237.png</a></li>
+									<li><a href="http://spitfiresite.com/wp-content/uploads/2010/07/Boulton_Paul_Defiant_crown-copyright.jpg">http://spitfiresite.com/wp-content/uploads/2010/07/Boulton_Paul_Defiant_crown-copyright.jpg</a></li>
+								</ul>
+							</li>
+							<li>
+								Weserübung
+								<ul>
+									<li><a href="https://de.wikipedia.org/wiki/Unternehmen_Weser%C3%BCbung">https://de.wikipedia.org/wiki/Unternehmen_Weser%C3%BCbung</a></li>
+									<li><a href="https://upload.wikimedia.org/wikipedia/commons/5/53/Second_world_war_europe_1940_map_de.png">https://upload.wikimedia.org/wikipedia/commons/5/53/Second_world_war_europe_1940_map_de.png</a></li>
+									<li><a href="http://www.worldwartours.be/files/deutscher-kreuzer-norwegen_1.jpg">http://www.worldwartours.be/files/deutscher-kreuzer-norwegen_1.jpg</a></li>
+									<li><a href="http://ww2live.com/sites/default/files/images/20170702210022.jpg">http://ww2live.com/sites/default/files/images/20170702210022.jpg</a></li>
+								</ul>
+							</li>
+							<li>
+								Start Westfeldzug
+								<ul>
+									<li><a href="https://de.wikipedia.org/wiki/%C3%9Cberfall_auf_die_Niederlande,_Belgien_und_Luxemburg">https://de.wikipedia.org/wiki/%C3%9Cberfall_auf_die_Niederlande,_Belgien_und_Luxemburg</a></li>
+									<li><a href="http://www.sueddeutsche.de/politik/erster-weltkrieg-in-belgien-deutschlands-folgenschwerer-ueberfall-1.1908899">http://www.sueddeutsche.de/politik/erster-weltkrieg-in-belgien-deutschlands-folgenschwerer-ueberfall-1.1908899</a></li>
+									<li><a href="https://www.dhm.de/lemo/kapitel/der-zweite-weltkrieg/kriegsverlauf/besetzung-von-belgien-1940.html">https://www.dhm.de/lemo/kapitel/der-zweite-weltkrieg/kriegsverlauf/besetzung-von-belgien-1940.html</a></li>
+									<li><a href="http://www.annefrank.org/de/Subsites/Zeitleiste-/Zweiter-Weltkrieg-1939-1945/Die-deutsche-Invasion/1940/KARTE-DE--Deutschland-greift-die-Niederlande-Belgien-und-Frankreich-an1/#!/de/Subsites/Zeitleiste-/Zweiter-Weltkrieg-1939-1945/Die-deutsche-Invasion/1940/KARTE-DE--Deutschland-greift-die-Niederlande-Belgien-und-Frankreich-an1/">http://www.annefrank.org/de/Subsites/Zeitleiste-/Zweiter-Weltkrieg-1939-1945/Die-deutsche-Invasion/1940/KARTE-DE--Deutschland-greift-die-Niederlande-Belgien-und-Frankreich-an1/#!/de/Subsites/Zeitleiste-/Zweiter-Weltkrieg-1939-1945/Die-deutsche-Invasion/1940/KARTE-DE--Deutschland-greift-die-Niederlande-Belgien-und-Frankreich-an1/</a></li>
+									<li><a href="https://de.wikipedia.org/wiki/%C3%9Cberfall_auf_die_Niederlande,_Belgien_und_Luxemburg#/media/File:Military_administration_Belgium_Northern_France.png">https://de.wikipedia.org/wiki/%C3%9Cberfall_auf_die_Niederlande,_Belgien_und_Luxemburg#/media/File:Military_administration_Belgium_Northern_France.png</a></li>
+								</ul>
+							</li>
+							<li>
+								Angriff auf die Niederlande
+								<ul>
+									<li><a href="https://upload.wikimedia.org/wikipedia/commons/6/61/Rotterdam%2C_Laurenskerk%2C_na_bombardement_van_mei_1940.jpg">https://upload.wikimedia.org/wikipedia/commons/6/61/Rotterdam%2C_Laurenskerk%2C_na_bombardement_van_mei_1940.jpg</a></li>
+									<li><a href="https://www.welt.de/img/bildergalerien/mobile106243022/9152500417-ci102l-w1024/Zweiter-Weltkrieg.jpg">https://www.welt.de/img/bildergalerien/mobile106243022/9152500417-ci102l-w1024/Zweiter-Weltkrieg.jpg</a></li>
+									<li><a href="https://www.welt.de/img/bildergalerien/mobile106243127/4032504147-ci102l-w1024/Koenigin-Wilhelmina-begruesst-niederlaend-Sa-Poe-t9-1-uemi-6L-l-e-9-ne-l-e-ne-9-e-l-e.jpg">https://www.welt.de/img/bildergalerien/mobile106243127/4032504147-ci102l-w1024/Koenigin-Wilhelmina-begruesst-niederlaend-Sa-Poe-t9-1-uemi-6L-l-e-9-ne-l-e-ne-9-e-l-e.jpg</a></li>
+								</ul>
+							</li>
+							<li>
+								Angriff auf Luxemburg
+								<ul>
+									<li><a href="https://de.wikipedia.org/wiki/Luxemburg_im_Zweiten_Weltkrieg#/media/File:Durchmarsch_wehrmacht_lux_Mai_1940.jpg">https://de.wikipedia.org/wiki/Luxemburg_im_Zweiten_Weltkrieg#/media/File:Durchmarsch_wehrmacht_lux_Mai_1940.jpg</a></li>
+								</ul>
+							</li>
+							<li>
+								Seeschlacht vor dem Midway Atoll
+								<ul>
+									<li><a href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Luftkampf_im_Pazifik_Juni_1942.jpg">https://upload.wikimedia.org/wikipedia/commons/f/f3/Luftkampf_im_Pazifik_Juni_1942.jpg</a></li>
+									<li><a href="http://www.abload.de/img/battle_of_midway5u0j.jpg">http://www.abload.de/img/battle_of_midway5u0j.jpg</a></li>
+								</ul>
+							</li>
+							<li>
+								Sportpalastrede
+								<ul>
+									<li><a href="https://de.wikipedia.org/wiki/Sportpalastrede">https://de.wikipedia.org/wiki/Sportpalastrede</a></li>
+									<li><a href="https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-J05235,_Berlin,_Gro%C3%9Fkundgebung_im_Sportpalast.jpg#/media/File:Bundesarchiv_Bild_183-J05235,_Berlin,_Gro%C3%9Fkundgebung_im_Sportpalast.jpg">https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-J05235,_Berlin,_Gro%C3%9Fkundgebung_im_Sportpalast.jpg#/media/File:Bundesarchiv_Bild_183-J05235,_Berlin,_Gro%C3%9Fkundgebung_im_Sportpalast.jpg</a></li>
+								</ul>
+							</li>
+							<li>
+								Pearl Harbour
+								<ul>
+									<li><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Pearl_Harbor_1941_hu.svg/2000px-Pearl_Harbor_1941_hu.svg.png">https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Pearl_Harbor_1941_hu.svg/2000px-Pearl_Harbor_1941_hu.svg.png</a></li>
+									<li><a href="http://www.atomicheritage.org/sites/default/files/Pearl%20Harbor%20aftermath.jpg">http://www.atomicheritage.org/sites/default/files/Pearl%20Harbor%20aftermath.jpg</a></li>
+									<li><a href="http://2013.attaches.forums.a0z.ru/04/03-3110173-uss-shaw-dd-373-wrecked-in-floating-drydock-yfd-2-7-december-1941.jpg">http://2013.attaches.forums.a0z.ru/04/03-3110173-uss-shaw-dd-373-wrecked-in-floating-drydock-yfd-2-7-december-1941.jpg</a></li>
+									<li><a href="https://fromplaygroundstopolitics.files.wordpress.com/2013/12/20131207-083456.jpg">https://fromplaygroundstopolitics.files.wordpress.com/2013/12/20131207-083456.jpg</a></li>
+									<li><a href="http://www.frontpagemag.com/sites/default/files/styles/article_full/public/uploads/2016/12/71381-004-534732c4.jpg?itok=YtxEY6Ml">http://www.frontpagemag.com/sites/default/files/styles/article_full/public/uploads/2016/12/71381-004-534732c4.jpg?itok=YtxEY6Ml</a></li>
+								</ul>
+							</li>
+							<li>
+								Anfang russ. Gegenoffensive
+								<ul>
+									<li><a href="https://de.wikipedia.org/wiki/Deutsch-Sowjetischer_Krieg">https://de.wikipedia.org/wiki/Deutsch-Sowjetischer_Krieg</a></li>
+									<li><a href="https://www.welt.de/kultur/history/article13852704/Wie-der-russische-Winter-Hitlers-Wehrmacht-zerrieb.html">https://www.welt.de/kultur/history/article13852704/Wie-der-russische-Winter-Hitlers-Wehrmacht-zerrieb.html</a></li>
+									<li><a href="https://de.wikipedia.org/wiki/Operation_Uranus">https://de.wikipedia.org/wiki/Operation_Uranus</a></li>
+									<li><a href="http://www.geschichte-lexikon.de/schlacht-von-stalingrad.php">http://www.geschichte-lexikon.de/schlacht-von-stalingrad.php</a></li>
+									<li><a href="https://deutscher-freiheitskampf.com/2014/11/19/die-schlacht-um-stalingrad-die-rote-armee-beginnt-am-19-november-1942-ihre-gegenoffensive/">https://deutscher-freiheitskampf.com/2014/11/19/die-schlacht-um-stalingrad-die-rote-armee-beginnt-am-19-november-1942-ihre-gegenoffensive/</a></li>
+									<li><a href="https://de.wikipedia.org/wiki/Schlacht_von_Stalingrad#/media/File:Map_Battle_of_Stalingrad-en.svg">https://de.wikipedia.org/wiki/Schlacht_von_Stalingrad#/media/File:Map_Battle_of_Stalingrad-en.svg</a></li>
+									<li><a href="https://mercy2908.files.wordpress.com/2014/11/big.jpg">https://mercy2908.files.wordpress.com/2014/11/big.jpg</a></li>
+								</ul>
+							</li>
+							<li>
+								Kapitulation der 6. Armee
+								<ul>
+									<li><a href="http://www.bild.de/politik/inland/zweiter-weltkrieg/die-panzerschlacht-von-kursk-18400640.bild.html">http://www.bild.de/politik/inland/zweiter-weltkrieg/die-panzerschlacht-von-kursk-18400640.bild.html</a></li>
+									<li><a href="https://upload.wikimedia.org/wikipedia/commons/2/29/Bundesarchiv_Bild_183-W0506-316%2C_Russland%2C_Kampf_um_Stalingrad%2C_Siegesflagge.jpg">https://upload.wikimedia.org/wikipedia/commons/2/29/Bundesarchiv_Bild_183-W0506-316%2C_Russland%2C_Kampf_um_Stalingrad%2C_Siegesflagge.jpg</a></li>
+									<li><a href="http://k30.kn3.net/taringa/C/9/F/4/9/9/martin182/5FB.jpg">http://k30.kn3.net/taringa/C/9/F/4/9/9/martin182/5FB.jpg</a></li>
+								</ul>
+							</li>
+							<li>
+								Operation Overlord
+								<ul>
+									<li><a href="http://i.imgur.com/WKbPl.jpg">http://i.imgur.com/WKbPl.jpg</a></li>
+									<li><a href="https://www.youtube.com/watch?v=Q-aYH4taQ2Q$">https://www.youtube.com/watch?v=Q-aYH4taQ2Q$</a></li>
+									<li><a href="https://de.wikipedia.org/wiki/Luftkrieg_w%C3%A4hrend_der_Operation_Overlord#/media/File:Typhoon-rearmed.jpg">https://de.wikipedia.org/wiki/Luftkrieg_w%C3%A4hrend_der_Operation_Overlord#/media/File:Typhoon-rearmed.jpg</a></li>
+									<li><a href="https://de.wikipedia.org/wiki/Luftkrieg_w%C3%A4hrend_der_Operation_Overlord#/media/File:Bombcarpiquet.jpg$">https://de.wikipedia.org/wiki/Luftkrieg_w%C3%A4hrend_der_Operation_Overlord#/media/File:Bombcarpiquet.jpg$</a></li>
+									<li><a href="https://de.wikipedia.org/wiki/Luftkrieg_w%C3%A4hrend_der_Operation_Overlord#/media/File:North_American_P-51_Mustang.JPG">https://de.wikipedia.org/wiki/Luftkrieg_w%C3%A4hrend_der_Operation_Overlord#/media/File:North_American_P-51_Mustang.JPG</a></li>
+									<li><a href="https://www.pinterest.com/pin/207376757820455508/">https://www.pinterest.com/pin/207376757820455508/</a></li>
+									<li><a href="http://worldwartwo.filminspector.com/2014/06/d-day-june-6-1944-operation-overlord.html">http://worldwartwo.filminspector.com/2014/06/d-day-june-6-1944-operation-overlord.html</a></li>
+									<li><a href="http://www.kurt-brun.ch/berichte/11/06/Feier%2067%20Jagrestag%20D-Day/Feier%20zum%2067.%20D-Day%20Jahrestag.htm">http://www.kurt-brun.ch/berichte/11/06/Feier%2067%20Jagrestag%20D-Day/Feier%20zum%2067.%20D-Day%20Jahrestag.htm</a></li>
+									<li><a href="https://deanoworldtravels.files.wordpress.com/2012/07/d-day-paratroopers.png">https://deanoworldtravels.files.wordpress.com/2012/07/d-day-paratroopers.png</a></li>
+									<li><a href="http://www.milsurps.com/showthread.php?t=20894">http://www.milsurps.com/showthread.php?t=20894</a></li>
+									<li><a href="http://www.larepublique77.fr/files/2014/06/7PAGE-DEPOUILLE01-1.jpg">http://www.larepublique77.fr/files/2014/06/7PAGE-DEPOUILLE01-1.jpg</a></li>
+									<li><a href="https://readtiger.com/wkp/en/Gold_Beach">https://readtiger.com/wkp/en/Gold_Beach</a></li>
+									<li><a href="http://www.utah-beach.com/wp-content/uploads/2013/06/img011.jpg">http://www.utah-beach.com/wp-content/uploads/2013/06/img011.jpg</a></li>
+									<li><a href="https://media1.britannica.com/eb-media/34/47834-004-8B654386.jpg">https://media1.britannica.com/eb-media/34/47834-004-8B654386.jpg</a></li>
+									<li><a href="https://media1.britannica.com/eb-media/18/48218-004-EAB4918C.jpg">https://media1.britannica.com/eb-media/18/48218-004-EAB4918C.jpg</a></li>
+									<li><a href="https://de.wikipedia.org/wiki/Canon_de_155mm_GPF#/media/File:Bundesarchiv_Bild_101I-263-1591-07A,_Atlantikwall,_Gesch%C3%BCtz.jpg">https://de.wikipedia.org/wiki/Canon_de_155mm_GPF#/media/File:Bundesarchiv_Bild_101I-263-1591-07A,_Atlantikwall,_Gesch%C3%BCtz.jpg</a></li>
+									<li><a href="https://de.wikipedia.org/wiki/Omaha_Beach#/media/File:Omaha_beachhead_6_June_1944.jpg">https://de.wikipedia.org/wiki/Omaha_Beach#/media/File:Omaha_beachhead_6_June_1944.jpg</a></li>
+									<li><a href="https://cdn-ak.f.st-hatena.com/images/fotolife/s/syabelog/20160901/20160901101816.jpg">https://cdn-ak.f.st-hatena.com/images/fotolife/s/syabelog/20160901/20160901101816.jpg</a></li>
+									<li><a href="https://upload.wikimedia.org/wikipedia/commons/a/a5/Into_the_Jaws_of_Death_23-0455M_edit.jpg">https://upload.wikimedia.org/wikipedia/commons/a/a5/Into_the_Jaws_of_Death_23-0455M_edit.jpg</a></li>
+								</ul>
+							</li>
+							<li>
+								Gold Beach
+								<ul>
+									<li><a href="https://de.wikipedia.org/wiki/Gold_Beach">https://de.wikipedia.org/wiki/Gold_Beach</a></li>
+									<li><a href="https://de.wikipedia.org/wiki/Gold_Beach">https://de.wikipedia.org/wiki/Gold_Beach</a></li>
+								</ul>
+							</li>
+							<li>
+								Sword Beach
+								<ul>
+									<li><a href="https://de.wikipedia.org/wiki/Sword_Beach">https://de.wikipedia.org/wiki/Sword_Beach</a></li>
+									<li><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Utah_Beach_Landing.jpg/1200px-Utah_Beach_Landing.jpg">https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Utah_Beach_Landing.jpg/1200px-Utah_Beach_Landing.jpg</a></li>
+									<li><a href="http://www.executived-daytours.com/uploads/4/0/6/5/4065476/8745414_orig.jpg">http://www.executived-daytours.com/uploads/4/0/6/5/4065476/8745414_orig.jpg</a></li>
+								</ul>
+							</li>
+							<li>
+								Juno Beach
+								<ul>
+									<li><a href="https://media1.britannica.com/eb-media/10/48210-004-2C65A420.jpg">https://media1.britannica.com/eb-media/10/48210-004-2C65A420.jpg</a></li>
+									<li><a href="http://www.dday-overlord.com/img/dday/jb/juno_beach_debarquement_chars.jpg">http://www.dday-overlord.com/img/dday/jb/juno_beach_debarquement_chars.jpg</a></li>
+									<li><a href="https://canadaalive.files.wordpress.com/2014/06/4ea31aee.jpg">https://canadaalive.files.wordpress.com/2014/06/4ea31aee.jpg</a></li>
+									<li><a href="http://239f21.medialib.edu.glogster.com/wnqYJ8akdfXoqXlCPPFM/media/e8/e8cc18cb3e72393e888c3d39ada74e564efcaadf/juno-beach-canadian-soldiers.jpg">http://239f21.medialib.edu.glogster.com/wnqYJ8akdfXoqXlCPPFM/media/e8/e8cc18cb3e72393e888c3d39ada74e564efcaadf/juno-beach-canadian-soldiers.jpg</a></li>
+								</ul>
+							</li>
+							<li>
+								Kapitulation Japans
+								<ul>
+									<li><a href="http://www.mps-kiel.de/bildung/japan/geschichte/japan_gs3_dorian.jpg">http://www.mps-kiel.de/bildung/japan/geschichte/japan_gs3_dorian.jpg</a></li>
+									<li><a href="https://www.welt.de/geschichte/zweiter-weltkrieg/article145903885/Der-Zweite-Weltkrieg-endete-in-nur-zehn-Minuten.html#cs-World-War-II-Douglas-MacArthur-left-Admiral-Nimitz-Japan-s-General-Yoshira.jpg">https://www.welt.de/geschichte/zweiter-weltkrieg/article145903885/Der-Zweite-Weltkrieg-endete-in-nur-zehn-Minuten.html#cs-World-War-II-Douglas-MacArthur-left-Admiral-Nimitz-Japan-s-General-Yoshira.jpg</a></li>
+								</ul>
+							</li>
+						</ul>
+					</details>
+					<br />
+				</div>
+				<footer>
+					Copyright &copy; 2017 by 3I 2017. All rights reserved.
+				</footer>
+	    	</div>
+	    </div>
+	    
+	    <div id="map">
+        </div>
+        <div id="header" class="dark">
+            <h3>Orsum Ichnographiae – Die interaktive Weltkarte zum 2. Weltkrieges</h3>
+            <span id="about">Info</span>
+            <div id="controls">
+	            <div class="controlElement" id="minifyMap">
+		            -
+	            </div>
+	            <div class="controlElement" id="magnifyMap">
+		            +
+	            </div>
+            </div>
+            <span id="coords">0°N | 0°W</span>
+            <div id="mapControls">
+                <img src="icons/roadmap.png" alt="switch to roadmap" width="30" height="30" class="active" id="switchRoadmap" />
+                <img src="icons/hybrid.png" alt="switch to hybrid" width="30" height="30" class="inactive" id="switchHybrid" />
+            </div>
+        </div>
+        <div id="eventsList">
+	        <h3>Noch kein Jahr ausgewählt</h3>
+	        <ul></ul>
+	        <div id="label">
+		        Ereignisse
+	        </div>
+        </div>
+        <div id="timeline">
+            <canvas id="timeRender"></canvas>
+        </div>
+    </body>
+</html>
