@@ -1,9 +1,9 @@
 (function() {
-	"use strict";
+  "use strict";
 
-	var Occurrence = function() {
+  var Occurrence = function() {
 
-	};
+  };
 
-	window.Occurrence = Occurrence;
+  window.Occurrence = Occurrence;
 })();

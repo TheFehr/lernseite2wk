@@ -1,9 +1,9 @@
 (function() {
-	"use strict";
+  "use strict";
 
-	var Place = function() {
+  var Place = function() {
 
-	};
+  };
 
-	window.Place = Place;
+  window.Place = Place;
 })();
