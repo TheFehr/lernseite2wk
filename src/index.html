@@ -3,8 +3,8 @@
     <head>
         <title>2WK - 3I 2017</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="style.css" />
-        <link rel="stylesheet" href="buttons.min.css" />
+        <link rel="stylesheet" href="styles/style.css" />
+        <link rel="stylesheet" href="styles/buttons.min.css" />
         <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAQkCdRP_9EjvfE2n7e_FcHRa5aDcB6s94" async></script>
         <script type="text/javascript" src="js/ajax.js"></script>
         <script type="text/javascript" src="js/Event.js"></script>
@@ -12,14 +12,14 @@
     </head>
     <body>
 	    <div id="anleitung">
-	    	<img src="icons/Anleitung_1.png" id="first" />
+	    	<img src="assets/icons/Anleitung_1.png" id="first" />
 	    </div>
 	    <div id="details">
 		    <div class="wrapper" onclick="window.event.target.className == 'wrapper' ? closeInfo() : void(0)">
 			    <div id="detailsWindow">
 				    <div class="header">
 					    <div id="close">
-						    <img src="icons/close.svg" width="20" height="20" onclick="closeInfo()" />
+						    <img src="assets/icons/close.svg" width="20" height="20" onclick="closeInfo()" />
 					    </div>
 					    <div id="title">
 						    #Title#
@@ -227,8 +227,8 @@
             </div>
             <span id="coords">0°N | 0°W</span>
             <div id="mapControls">
-                <img src="icons/roadmap.png" alt="switch to roadmap" width="30" height="30" class="active" id="switchRoadmap" />
-                <img src="icons/hybrid.png" alt="switch to hybrid" width="30" height="30" class="inactive" id="switchHybrid" />
+                <img src="assets/icons/roadmap.png" alt="switch to roadmap" width="30" height="30" class="active" id="switchRoadmap" />
+                <img src="assets/icons/hybrid.png" alt="switch to hybrid" width="30" height="30" class="inactive" id="switchHybrid" />
             </div>
         </div>
         <div id="eventsList">

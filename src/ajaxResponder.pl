@@ -13,7 +13,6 @@
 use v5.10.0;
 use warnings;
 use DBI;
-use diagnostics;
 use CGI;
 use JSON;
 use Encode qw(decode_utf8 encode_utf8);
@@ -62,8 +61,8 @@ sub generateMediaHash {
 
 # my ($db_user, $db_name, $db_pass) = ('INSERT USER NAME', 'INSERT DB NAME', 'INSERT DB PASSWORD');
 # When using Docker image:
-my ($db_user, $db_name, $db_pass) = ('docker', 'media', 'my-secure-password');
-my $db = DBI->connect("DBI:mysql:database=$db_name", $db_user, $db_pass, {RaiseError => 1, PrintError => 1, mysql_enable_utf8 => 1});
+my ($db_host, $db_user, $db_name, $db_pass) = ('mariaDB', 'docker', 'media', 'my-secure-password');
+my $db = DBI->connect("DBI:mysql:$db_name:$db_host", $db_user, $db_pass, {RaiseError => 1, PrintError => 1, mysql_enable_utf8 => 1});
 
 $statement = selectEvents($db);
 our %databaseData;

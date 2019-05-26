@@ -7,7 +7,7 @@
         $id = $_GET['id'];
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://localhost/2wk/detailsResponder.pl?id=$id");
+        curl_setopt($ch, CURLOPT_URL, "http://nginx/detailsResponder.pl?id=$id");
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 

@@ -164,7 +164,7 @@
               title: event.title,
               animation: google.maps.Animation.DROP,
               icon: {
-                url: 'icons/marker_2.png',
+                // url: 'assets/icons/marker_2.png',
                 origin: new google.maps.Point(0, 0),
                 anchor: new google.maps.Point(15, 62)
               }
@@ -294,7 +294,7 @@
     var wrapper = document.querySelector("#details .wrapper");
 
     wrapper.style.display = "block";
-    document.getElementById("infoFrame").src = "http://medio.kbw.ch/2wk/mamiju/index.php?id=" + id;
+    document.getElementById("infoFrame").src = "/details/index.php?id=" + id;
     document.querySelector("#details .wrapper #detailsWindow #title").innerHTML = title;
 
     setTimeout(function() {
@@ -462,7 +462,7 @@
 
   function displayNextInstructionImage(index) {
     if (index > currentInstructionsIndex)
-      document.querySelector("#anleitung img").src = "icons/Anleitung_" + index + ".png";
+      document.querySelector("#anleitung img").src = "assets/icons/Anleitung_" + index + ".png";
   }
 
   window.addEventListener("load", function(loadEvent) {
